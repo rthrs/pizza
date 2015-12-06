@@ -4,7 +4,7 @@
 template<typename... Kinds> struct Pizzeria {
 
    template<typename Kind> struct make_pizza {
-      using ......... = type;
+      using type = /*smth*/;
    };
 /** To w strukturze reprezentujacej pizze **/
    template<typename Kind> static constexpr size_t count() {
@@ -15,7 +15,7 @@ template<typename... Kinds> struct Pizzeria {
 
    };
    
-   using ........... = sliced_type;
+   using sliced_type = /*smth*/;
 /*******************************************/
 };
 
