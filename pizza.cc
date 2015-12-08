@@ -25,13 +25,12 @@ int main() {
             "Where's my supreme!?");
     static_assert(Supreme::count<napoli>() == 0,
             "Napoli!?");
-	//Supreme::as_array()
-/*    assert((Supreme::as_array() == std::array<size_t, 2>{{8, 0}}));
 
+//    assert((Supreme::as_array() == std::array<size_t, 2>{{8, 0}}));
     using SuperSupreme = Supreme::sliced_type;
     static_assert(SuperSupreme::count<supreme>() == 16,
             "SuperSupreme does not look supreme!");
-
+/*
     using SuperExtraSupreme = SuperSupreme::sliced_type;
     static_assert(SuperExtraSupreme::count<supreme>() == 32,
             "SuperExtraSupreme is not supreme enough!");
