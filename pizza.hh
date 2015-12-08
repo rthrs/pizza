@@ -14,6 +14,11 @@ template<typename... Kinds> struct Pizzeria {
       template<typename Kind> static constexpr size_t count() {
          return ((std::is_same<Kind, Kinds>::value * Slices) + ...);
       }   
+	
+      static constexpr std::array<size_t, [N]> as_array() {
+	 static const std::size_t value = sizeof...(Slices);
+         return std::array<int, value> = { Slices ... };
+      }
    };
 
    /** 
@@ -24,7 +29,7 @@ template<typename... Kinds> struct Pizzeria {
       using type = Pizza<(std::is_same<Kind, Kinds>::value ? default_slices_count : 0) ...>;
    };
 
- //  static constexpr std::array<size_t, [N]> as_array() {
+  
 };
    
 /*using sliced_type = ; */

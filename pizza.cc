@@ -25,6 +25,7 @@ int main() {
             "Where's my supreme!?");
     static_assert(Supreme::count<napoli>() == 0,
             "Napoli!?");
+	//Supreme::as_array()
 /*    assert((Supreme::as_array() == std::array<size_t, 2>{{8, 0}}));
 
     using SuperSupreme = Supreme::sliced_type;
