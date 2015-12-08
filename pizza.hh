@@ -5,23 +5,32 @@
 #include <type_traits>
 #include <array>
 
-const size_t default_slices_count = 8;
 
 template<typename... Kinds> struct Pizzeria {
 
+private:
 
+   static constexpr size_t default_slices_count = 8;
+
+   template<typename Kind, typename... Rest> static constexpr bool check_content() {
+      return (std::is_same<Kind, Rest>::value || ...);
+   }
+/*
+   template<typename Kind, typename... Rest> static constexpr bool check_duplicates() {
+      return (std::is_same(
+   }
+*/
    template<size_t... Slices> struct Pizza {
+
+   private:
+      
       using pizzeria = Pizzeria<Kinds ...>;
+
+   public:
 
       template<typename Kind> static constexpr size_t count() {
          return ((std::is_same<Kind, Kinds>::value * Slices) + ...);
       }   
-/*
-      static constexpr std::array<size_t, [N]> as_array() {
-         static const std::size_t value = sizeof...(Slices);
-         return std::array<int, value> = { Slices ... };
-      }
-*/
 
       static constexpr std::array<size_t, sizeof... (Slices)> as_array() {
          return std::array<size_t, sizeof... (Slices)> {{Slices ...}};
@@ -31,15 +40,13 @@ template<typename... Kinds> struct Pizzeria {
 
    };
 
-   /** 
-    * nalezy znalezc ktory z kolei to jest typ 'Kind' liscie typow pizy w 
-    * pizzeri i dac mu w tym miejscu dla struktury Pizza 8 kawałków 
-    */ 
-   template<typename Kind> struct make_pizza {
+public:
+
+  template<typename Kind> struct make_pizza {
+      static_assert(check_content<Kind, Kinds ...>(), "There is no such a pizza name in menu!");
       using type = Pizza<(std::is_same<Kind, Kinds>::value ? default_slices_count : 0) ...>;
    };
 
-  
 };
    
 
