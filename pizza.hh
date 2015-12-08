@@ -1,7 +1,9 @@
 #ifndef __PIZZA_HH__
 #define __PIZZA_HH__
 
+#include <cstddef>
 #include <type_traits>
+#include <array>
 
 const size_t default_slices_count = 8;
 
@@ -14,13 +16,16 @@ template<typename... Kinds> struct Pizzeria {
       template<typename Kind> static constexpr size_t count() {
          return ((std::is_same<Kind, Kinds>::value * Slices) + ...);
       }   
-
-	
+/*
       static constexpr std::array<size_t, [N]> as_array() {
-	 static const std::size_t value = sizeof...(Slices);
+         static const std::size_t value = sizeof...(Slices);
          return std::array<int, value> = { Slices ... };
       }
+*/
 
+      static constexpr std::array<size_t, sizeof... (Slices)> as_array() {
+         return std::array<size_t, sizeof... (Slices)> {{Slices ...}};
+      }
 
       using sliced_type = Pizza<(Slices * 2) ...>;
 
