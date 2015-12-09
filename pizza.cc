@@ -42,19 +42,19 @@ int main() {
     using SuperExtraSupreme = SuperSupreme::sliced_type;
     static_assert(SuperExtraSupreme::count<supreme>() == 32,
             "SuperExtraSupreme is not supreme enough!");
-/*
+
     using SupremeMix = best_mix<Supreme, SuperSupreme>::type;
     static_assert(SupremeMix::count<supreme>() == 4,
             "http://www.wolframalpha.com/input/?i=1000*%28%28x%2F18%29%5E2-3%28x%2F18%29%5E3%29");
     static_assert(Supreme::count<napoli>() == 0,
             "How come I got napoli from supreme!?");
-*/
+
     using Napoli = Dominion::make_pizza<napoli>::type;
     static_assert(Napoli::count<napoli>() == 8,
             "Where's my napoli!?");
     static_assert(Napoli::count<supreme>() == 0,
             "Supreme!?");
-/*
+
     using BestMix = best_mix<Supreme, Napoli>::type;
     static_assert(BestMix::count<supreme>() == 4,
             "Buy yourself a supreme calculator!");
@@ -70,7 +70,7 @@ int main() {
     using MixedMixes = best_mix<SupremeMix, BestMix>::type;
     static_assert(std::is_same<BestMix, MixedMixes>::value,
             "Something is definitely mixed here...");
-*/
+
     // Following code fragments should not compile, with clear and
     // understandable compile errors.
 
