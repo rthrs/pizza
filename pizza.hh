@@ -27,7 +27,7 @@ private:
          auto total = Type::yumminess(0);
          total = 0;
          size_t size = 0;		
-         for(size_t i = 0; i < slices; i++) {
+         for(size_t i = 0; i <= slices; i++) {
             auto acc = Type::yumminess(i);
             if(acc > total) {
                total = acc;
