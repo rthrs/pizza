@@ -29,7 +29,7 @@ private:
    public:
 
       template<typename Kind> static constexpr size_t count() {
-         return ((std::is_same<Kind, Kinds>::value * Slices) + ...);
+         return ((std::is_same<Kind, Kinds>::value ? Slices : 0) + ...);
       }   
 
       static constexpr std::array<size_t, sizeof... (Slices)> as_array() {
