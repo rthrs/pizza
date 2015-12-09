@@ -4,6 +4,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 struct supreme {
     static constexpr int yumminess(size_t slices) {
@@ -20,8 +21,7 @@ struct napoli {
 int main() {
 
 
-  //  using TelePizza = Pizzeria<napoli, napoli>;
-  //  using LOL = TelePizza::make_pizza<napoli>::type;
+    //using TelePizza = Pizzeria<napoli, napoli, supreme, napoli>;
 
 
     using Dominion = Pizzeria<supreme, napoli>;
@@ -31,7 +31,9 @@ int main() {
             "Where's my supreme!?");
     static_assert(Supreme::count<napoli>() == 0,
             "Napoli!?");
-
+//static const std::array<bool, 4> a = TelePizza::lol();
+//for (int i = 0 ; i < 4; i++)
+// std::cout << a[i] << std::endl;
     assert((Supreme::as_array() == std::array<size_t, 2>{{8, 0}}));
     using SuperSupreme = Supreme::sliced_type;
     static_assert(SuperSupreme::count<supreme>() == 16,
