@@ -48,10 +48,23 @@ public:
    };
 
 };
-   
+/*
+template <typename Pizza> int maxi_pizza(int slices) {
+	long long total = 0;
+	int size = 0;		
+	for(int i = 0; i < slices; i++) {
+		long long acc = Pizza.yummines(i);
+		if(acc > total) {
+			total = acc;
+			size = i;
+		}
+	}
+	return size;
+}
 
 template<typename Pizza1, typename Pizza2> struct best_mix {
-
-};
+	using connected = {};// tutaj trzeba pizze1 i pizze2 połaczyć w jedna
+	using type = Pizza<(maxi_pizza<Kinds>(Slices)) ... >//iterujemy po rodzajach i ilościach kawakłów (kod raczej niepoprawny)
+};*/
 
 #endif /* __PIZZA_HH__ */
