@@ -56,10 +56,21 @@ int main() {
             "Supreme!?");
 
     using BestMix = best_mix<Supreme, Napoli>::type;
+
+/*
+   std::cout << "maxi pizza " << Napoli::maxi_pizza<napoli>(8) << std::endl;
+
+   static const std::array<size_t, 2> a = BestMix::as_array();
+
+   for (int i = 0 ; i < 2; i++)
+      std::cout << a[i] << std::endl;
+*/
+
     static_assert(BestMix::count<supreme>() == 4,
             "Buy yourself a supreme calculator!");
     static_assert(BestMix::count<napoli>() == 8,
             "There should be 8 napoli slices here!");
+
 
     using AnotherSupreme = Dominion::make_pizza<supreme>::type;
     static_assert(std::is_same<Supreme, AnotherSupreme>::value,
@@ -77,9 +88,9 @@ int main() {
     //using IndecisivePizzeria = Pizzeria<supreme, supreme>;
     //using IndecisiveSupreme = IndecisivePizzeria::make_pizza<supreme>::type;
 
-    //using DeGrasso = Pizzeria<supreme>;
-    //using SupremeNapoli = DeGrasso::make_pizza<napoli>::type;
+   // using DeGrasso = Pizzeria<supreme>;
+   // using SupremeNapoli = DeGrasso::make_pizza<napoli>::type;
 
-    //using DeSupreme = DeGrasso::make_pizza<supreme>::type;
-    //using IllegalMix = best_mix<Supreme, DeSupreme>::type;
+   // using DeSupreme = DeGrasso::make_pizza<supreme>::type;
+   // using IllegalMix = best_mix<Supreme, DeSupreme>::type;
 }
