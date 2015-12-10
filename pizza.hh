@@ -61,7 +61,7 @@ private:
          static_assert(Type::yumminess(0) == 0, ASSERT_YUMMINESS);
          decltype(Type::yumminess(slices)) total = 0;
          std::size_t size = 0;		
-         for(std::size_t i = 0; i <= slices; i++) {
+         for(std::size_t i = 1; i <= slices; ++i) {
             auto acc = Type::yumminess(i);
             if(acc > total) {
                total = acc;
