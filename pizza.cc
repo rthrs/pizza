@@ -152,6 +152,15 @@ constexpr const T make_const(const T& x) {
 
 
 int main() {
+
+
+ /* using Dominion = Pizzeria<supreme>;
+
+  using Supreme = Dominion::make_pizza<supreme>::type;
+
+
+    using SupremeMix = best_mix<Supreme, Supreme>::type;
+*/
 #if TEST_NUM == 100
     using Dominion = Pizzeria<supreme, napoli>;
 
